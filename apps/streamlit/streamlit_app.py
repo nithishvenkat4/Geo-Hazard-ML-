@@ -1,14 +1,16 @@
 import streamlit as st
-import sys
-import os
 import pandas as pd
 import plotly.express as px
+import sys
+import os
 
+# Add project root to path
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+sys.path.append(ROOT_DIR)
+from core.predict import predict
 # --------------------------------------
 # IMPORT BACKEND
 # --------------------------------------
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from core.predict import predict
 
 # --------------------------------------
 # PAGE CONFIG
