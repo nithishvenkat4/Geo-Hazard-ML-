@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+
+.env
+.vscode/
+.DS_Store
+
+# Data (optional — keep processed if needed)
+data/raw/
