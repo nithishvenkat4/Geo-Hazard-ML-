@@ -1,4 +1,5 @@
-from flask import Flask
+import sys, os
+sys.path.append(os.path.abspath("."))from flask import Flask
 
 from apps.flask.routes import main
 app = Flask(__name__)
