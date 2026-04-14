@@ -74,6 +74,15 @@ df['depth_category'] = df['eq_depth_mean'].apply(categorize_depth)
 # Absolute latitude (tectonic relevance)
 df['lat_abs'] = abs(df['lat_grid'])
 
+# Seismic zone flag (Ring of Fire / subduction belt latitudes ≤ 60°)
+df['lat_seismic_zone'] = (df['lat_abs'] <= 60).astype(int)
+
+# Seismic intensity: combines energy magnitude with frequency
+df['seismic_intensity'] = df['seismic_energy_proxy'] * df['eq_frequency_score']
+
+# Weighted magnitude: surface damage proxy (high mag + shallow depth = dangerous)
+df['weighted_mag'] = df['eq_mag_mean'] / (df['eq_depth_mean'] + 1)
+
 
 # ------------------------------------------
 # 7. SPATIAL SMOOTHING (CRITICAL FEATURE)
